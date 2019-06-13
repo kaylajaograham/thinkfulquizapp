@@ -30,20 +30,23 @@
                 }
                 /*insert media queries here */
                 
-                @media screen and (max-width: 768px) {
+                @media screen and (min-width: 320px) and (max-width: 768px) {
                     .logo {
-                        width: 120px;
-                        height: 120px;
                         display: block;
-                        margin: auto;
+                        margin-left: auto;
+                        margin-right: auto;
                     }
-                    li {
+                    .navbar {
                         float: none;
                         width: 100%;
-                        margin: 10px;
                         text-align: center;
                     }
-                    h1 {
-                        font-size: 1.5em
+                    .question,
+                    .questionForm {
+                        height: 100px;
+                        width: 300px;
+                        margin: 30px auto;
+                        text-align: center;
+                        padding: 10px;
                     }
                 }
