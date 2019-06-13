@@ -1,0 +1,49 @@
+                .logo {
+                    padding: 30px;
+                    width: 100px;
+                    height: 100px;
+                }
+                
+                nav {
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 0;
+                    position: relative;
+                    float: right;
+                }
+                
+                li {
+                    display: inline-block;
+                    padding: 30px;
+                }
+                
+                main {
+                    text-align: center;
+                    width: 100%;
+                }
+                
+                .question,
+                .questionForm {
+                    border: 1px black solid;
+                    height: 40px;
+                    margin: 10px 250px 10px 250px;
+                }
+                /*insert media queries here */
+                
+                @media screen and (max-width: 768px) {
+                    .logo {
+                        width: 120px;
+                        height: 120px;
+                        display: block;
+                        margin: auto;
+                    }
+                    li {
+                        float: none;
+                        width: 100%;
+                        margin: 10px;
+                        text-align: center;
+                    }
+                    h1 {
+                        font-size: 1.5em
+                    }
+                }
