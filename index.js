@@ -39,21 +39,21 @@ function removeStartButton() {
 function generateQuestion() {
     if (questionNumber < STORE.length) {
         return `<div class="questionContainer">
-        <h2>${STORE[questionNumber].question}</h2>
+        <h2>${STORE[questionNumber].question}</h2><br>
         <form class="form"> 
         <fieldset>
             <label class="mutipleChoice">
             <input type="radio" value="${STORE[questionNumber].choices[0]}" name="answer" required>
                 <span> ${STORE[questionNumber].choices[0]} </span>  
-            </label><br>
+            </label><br><br>
             <label class="mutipleChoice">
             <input type="radio" value="${STORE[questionNumber].choices[1]}" name="answer" required>
                 <span> ${STORE[questionNumber].choices[1]} </span>  
-            </label><br>
+            </label><br><br>
             <label class="mutipleChoice">
             <input type="radio" value="${STORE[questionNumber].choices[2]}" name="answer" required>
                 <span> ${STORE[questionNumber].choices[2]} </span>  
-            </label><br>
+            </label><br><br>
             <button type="submit" class="submitButton">Submit</button>
             </fieldset>
         </form>
@@ -95,14 +95,14 @@ function clickSubmit() {
 function answerCorrect() {
     scoreNum();
     console.log('correct answer');
-    return `<h3>You got it!</h3><br><br>
+    return `<img src='https://media.giphy.com/media/26FPnsRww5DbqoPuM/giphy.gif' alt='Kenan Thompson saying correct'><br><br><h3>You're correct.</h3><br><br>
     <button type="submit" class= "nextButton">Next</button>`;
 }
 
 //incorrect screen
 function answerIncorrect() {
     console.log('incorrect answer');
-    return `<h3>That was close!</h3><br>The right answer is <br> "${STORE[questionNumber].correct}" <br><br>
+    return `<img src='https://media1.giphy.com/media/l4pLY0zySvluEvr0c/giphy.gif' alt='Gordon Ramsey giphy saying wrong'><br><br>The right answer is <br> "${STORE[questionNumber].correct}" <br><br>
     <button type="submit" class= "nextButton">Next</button>`
 }
 
@@ -133,11 +133,10 @@ function questionNum() {
 
 function quizComplete() {
     if (score >= 3) {
-        $('.quizForm').html(`<h3>Wow! You did great!</h3>
+        $('.quizForm').html(`<img src ='https://media3.giphy.com/media/cEODGfeOYMRxK/giphy.gif?cid=790b76115d053fe16454394773867a7a&rid=giphy.gif' alt='Jimmy Falon saying great job'><br><h3>Checking your score..</h3><br>Wow - you did great!<br><br>
         <button class="retakeQuiz" type="submit">Do it again!</button>`);
     } else if (score < 3) {
-        $('.quizForm').html(`<h3>Bummer...better luck next time!</h3>
-        <br><br>
+        $('.quizForm').html(`<img src='https://media1.giphy.com/media/26gsw7HFlUjCbbUZ2/giphy.gif?cid=790b76115d053f5b68534a586f869985&rid=giphy.gif' alt='disappointed girl'><br><h3>Checking your score..</h3><br>Sorry - better luck next time.<br><br>
         <button class="retakeQuiz" type="submit">Retake Quiz</button>`);
     }
     console.log('user completed quiz');
