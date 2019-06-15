@@ -20,18 +20,18 @@ body {
 
 .counter {
     display: flex;
-    justify-content: flex-end;
-}
-
-li {
     display: inline;
     padding: 30px;
-    text-align: right:
+    text-align: right;
 }
 
 main {
     position: block;
     text-align: center;
+}
+
+h2 {
+    padding: 30px;
 }
 
 button {

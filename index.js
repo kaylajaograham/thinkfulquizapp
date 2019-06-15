@@ -28,7 +28,7 @@ let score = 0;
 function removeStartButton() {
     $('.js-start-button').on('click', function(event) {
         event.preventDefault();
-        $('.js-start-button').remove(); //remove start button
+        $('.quizDiv').remove(); //remove h2 and button
         renderQuestion();
         questionNum();
         console.log('removed start button');
@@ -68,13 +68,11 @@ function incrementQuestionNumber() {
     if (questionNumber < STORE.length) {
         questionNumber++;
     }
-    console.log('increased the question number');
 }
 
 //took the div for the question form and added the html for the above function to get question/guesses appearing
 function renderQuestion() {
     $('.quizForm').html(generateQuestion());
-    console.log('Generated a question for you!');
 }
 
 //user presses 'submit', feedback is presented 
@@ -96,14 +94,16 @@ function clickSubmit() {
 //correct screen
 function answerCorrect() {
     scoreNum();
+    console.log('correct answer');
     return `<h3>You got it!</h3><br>
     <button type="submit" class= "nextButton">Next</button>`;
 }
+
 //incorrect screen
 function answerIncorrect() {
-    return `<h3>Sorry, that's not right..</h3><br>
+    console.log('incorrect answer');
+    return `<h3>That was close!</h3><br>The right answer is <br> "${STORE[questionNumber].correct}" <br><br>
     <button type="submit" class= "nextButton">Next</button>`
-
 }
 
 //user presses 'next', generates next question 
@@ -129,27 +129,29 @@ function questionNum() {
 }
 
 
-//end of quiz - total is displayed
+//completed quiz - results
 
 function quizComplete() {
     if (score >= 3) {
         $('.quizForm').html(`<h3>Wow! You did great!</h3>
-        <button class="retakeQuiz" type="submit">Retake</button>`);
+        <button class="retakeQuiz" type="submit">Do it again!</button>`);
     } else if (score < 3) {
         $('.quizForm').html(`<h3>Better luck next time!</h3><br>
         <button class="retakeQuiz" type="submit">Retake Quiz</button>`);
     }
+    console.log('user completed quiz');
 }
 
-//on click of 'try again' button, the whole quiz is regenerated 
+//take user back to home quiz screen
 function retakeQuiz() {
     $(document).on('click', '.retakeQuiz', function(event) {
         location.reload();
+        console.log('user starting over');
     })
 }
 
 
-// //place all functions here that runs quiz
+// this renders the quiz all over again
 function createQuiz() {
     removeStartButton();
     clickSubmit();
