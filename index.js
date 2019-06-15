@@ -16,7 +16,7 @@ const STORE = [{
     choices: ['2', '3', '4'],
     correct: '3'
 }, {
-    question: 'Who said "I\'m going going, back back, to Cali Cali?',
+    question: 'Who said "I\'m going going, back back, to Cali Cali?"',
     choices: ['Tupac', 'Ice Cube', 'Biggie'],
     correct: 'Biggie'
 }];
@@ -38,7 +38,7 @@ function removeStartButton() {
 // this generations the question/answer form after clicking start button
 function generateQuestion() {
     if (questionNumber < STORE.length) {
-        return `<div class="question_${questionNumber}">
+        return `<div class="questionContainer">
         <h2>${STORE[questionNumber].question}</h2>
         <form class="form"> 
         <fieldset>
@@ -47,11 +47,11 @@ function generateQuestion() {
                 <span> ${STORE[questionNumber].choices[0]} </span>  
             </label><br>
             <label class="mutipleChoice">
-            <input type="radio" value="${STORE[questionNumber].choices[1]}" name="answer">
+            <input type="radio" value="${STORE[questionNumber].choices[1]}" name="answer" required>
                 <span> ${STORE[questionNumber].choices[1]} </span>  
             </label><br>
             <label class="mutipleChoice">
-            <input type="radio" value="${STORE[questionNumber].choices[2]}" name="answer">
+            <input type="radio" value="${STORE[questionNumber].choices[2]}" name="answer" required>
                 <span> ${STORE[questionNumber].choices[2]} </span>  
             </label><br>
             <button type="submit" class="submitButton">Submit</button>
@@ -63,8 +63,8 @@ function generateQuestion() {
         $('.questionNum').text(5);
     };
 }
-//increment questionNumber each time user presses 'submit'
-function incrementQuestionNumber() {
+//new question number pulls new question
+function increaseQuestionNumber() {
     if (questionNumber < STORE.length) {
         questionNumber++;
     }
@@ -87,7 +87,7 @@ function clickSubmit() {
         } else {
             $('.quizForm').html(answerIncorrect());
         }
-        incrementQuestionNumber();
+        increaseQuestionNumber();
     });
 }
 
@@ -95,7 +95,7 @@ function clickSubmit() {
 function answerCorrect() {
     scoreNum();
     console.log('correct answer');
-    return `<h3>You got it!</h3><br>
+    return `<h3>You got it!</h3><br><br>
     <button type="submit" class= "nextButton">Next</button>`;
 }
 
@@ -136,7 +136,8 @@ function quizComplete() {
         $('.quizForm').html(`<h3>Wow! You did great!</h3>
         <button class="retakeQuiz" type="submit">Do it again!</button>`);
     } else if (score < 3) {
-        $('.quizForm').html(`<h3>Better luck next time!</h3><br>
+        $('.quizForm').html(`<h3>Bummer...better luck next time!</h3>
+        <br><br>
         <button class="retakeQuiz" type="submit">Retake Quiz</button>`);
     }
     console.log('user completed quiz');
