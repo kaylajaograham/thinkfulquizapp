@@ -1,52 +1,70 @@
-                .logo {
-                    padding: 30px;
-                    width: 100px;
-                    height: 100px;
-                }
-                
-                nav {
-                    list-style-type: none;
-                    margin: 0;
-                    padding: 0;
-                    position: relative;
-                    float: right;
-                }
-                
-                li {
-                    display: inline-block;
-                    padding: 30px;
-                }
-                
-                main {
-                    text-align: center;
-                    width: 100%;
-                }
-                
-                .question,
-                .questionForm {
-                    border: 1px black solid;
-                    height: 40px;
-                    margin: 10px 250px 10px 250px;
-                }
-                /*insert media queries here */
-                
-                @media screen and (min-width: 320px) and (max-width: 768px) {
-                    .logo {
-                        display: block;
-                        margin-left: auto;
-                        margin-right: auto;
-                    }
-                    .navbar {
-                        float: none;
-                        width: 100%;
-                        text-align: center;
-                    }
-                    .question,
-                    .questionForm {
-                        height: 100px;
-                        width: 300px;
-                        margin: 30px auto;
-                        text-align: center;
-                        padding: 10px;
-                    }
-                }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: url('https://img.freepik.com/free-vector/watercolour-abstract-background_1048-9210.jpg?size=626&ext=jpg')no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.logo {
+    padding: 30px;
+    width: 300px;
+    height: 200px;
+}
+
+.counter {
+    display: flex;
+    justify-content: flex-end;
+}
+
+li {
+    display: inline;
+    padding: 30px;
+    text-align: right:
+}
+
+main {
+    position: block;
+    text-align: center;
+}
+
+button {
+    padding: 20px;
+}
+
+.quizForm {
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    padding: 30px;
+    text-align: center;
+}
+
+
+/*insert media queries here */
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+    .logo {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    li {
+        float: none;
+        text-align: center;
+        display: block;
+    }
+    .quizForm {
+        margin-left: auto;
+        margin-right: auto;
+        width: 75%;
+        padding: 30px;
+        text-align: center;
+    }
+}
